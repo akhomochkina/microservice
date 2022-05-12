@@ -17,8 +17,11 @@
   "bugs": {
     "url": "https://github.com/akhomochkina/fragments/issues"
   },
-  "engines" : { 
-    "node" : "^16.0.0"
+  "engines": {
+    "node": "^16.0.0"
   },
-  "homepage": "https://github.com/akhomochkina/fragments#readme"
+  "homepage": "https://github.com/akhomochkina/fragments#readme",
+  "devDependencies": {
+    "prettier": "2.6.2"
+  }
 }
