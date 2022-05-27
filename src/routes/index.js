@@ -8,6 +8,8 @@ const { version, author } = require('../../package.json');
 // Our authorization middleware
 const { authenticate } = require('../authorization');
 
+const { createSuccessResponse } = require('../../src/response');
+
 // Create a router that we can use to mount our API
 const router = express.Router();
 
@@ -27,7 +29,7 @@ router.get('/', (req, res) => {
   res.setHeader('Cache-Control', 'no-cache');
   // Send a 200 'OK' response
   res.status(200).json({
-    status: 'ok',
+    status: createSuccessResponse().status,
     author,
     // Use your own GitHub URL for this...
     githubUrl: 'https://github.com/akhomochkina/fragments',
