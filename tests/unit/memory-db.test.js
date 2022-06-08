@@ -23,7 +23,7 @@ describe('memory-db', () => {
   test('put() and get() work with Buffers', async () => {
     const data = Buffer.from([1, 2, 3]);
     await db.put('a', 'b', data);
-    const result = await db.get('a', 'b');
+    const result = await db.get('b', 'b');
     expect(result).toEqual(data);
   });
 
