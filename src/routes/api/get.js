@@ -5,11 +5,11 @@
  */
 
 const { createSuccessResponse } = require('../../../src/response');
+const { Fragment } = require('../../model/fragment');
 
-module.exports = (req, res) => {
-  // TODO: this is just a placeholder to get something working...
-  res.status(200).json({
-    status: createSuccessResponse().status,
-    fragments: [],
-  });
+let fragment;
+module.exports = async (req, res) => {
+  fragment = await Fragment.byUser(req.user, req.query.expand);
+
+  res.status(200).json(createSuccessResponse({ fragments: fragment }));
 };
