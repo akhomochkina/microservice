@@ -127,6 +127,7 @@ class Fragment {
       if (data) {
         this.updated = new Date().toISOString();
         this.size = Buffer.byteLength(data);
+        this.save();
         return await writeFragmentData(this.ownerId, this.id, data);
       } else throw new Error('Cannot set data, try again');
     } catch (error) {
