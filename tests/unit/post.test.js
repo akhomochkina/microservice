@@ -18,7 +18,7 @@ describe('POST /v1/fragments', () => {
       .set('Content-type', 'text/plain')
       .auth('user1@email.com', 'password1');
 
-    expect(res.statusCode).toBe(200);
+    expect(res.statusCode).toBe(201);
     expect(res.body.status).toBe('ok');
   });
 
