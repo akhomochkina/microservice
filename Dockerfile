@@ -31,7 +31,7 @@ RUN npm install
 FROM node:16.15-alpine@sha256:c785e617c8d7015190c0d41af52cc69be8a16e3d9eb7cb21f0bb58bcfca14d6b AS build
 
 # Install curl
-RUN apk --no-cache add curl=7.83.1
+RUN apk add --no-cache curl=~7.83.1
 
 # Use /app as our working directory
 WORKDIR /app
