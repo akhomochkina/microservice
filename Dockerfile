@@ -15,15 +15,11 @@ ENV PORT=8080 \
 WORKDIR /app
 
 # Copy the package.json and package-lock.json files into /app
-# Copy the package.json and package-lock.json files into /app
-COPY package*.json /app/
-
-# Copy the package.json and package-lock.json files into the working dir (/app)
-COPY package*.json ./ \
-    package.json package-lock.json ./
+COPY package*.json /app/ \
+    package*.json ./
 
 # Install node dependencies defined in package-lock.json
-RUN npm install
+RUN npm ci
 
 #################################################################################
 
@@ -42,9 +38,9 @@ COPY --from=dependencies /app /app/
 COPY ./src ./src
 
 # Copy our HTPASSWD file
-COPY ./tests/.htpasswd ./tests/.htpasswd
+COPY ./tests/.htpasswd ./tests/.htpasswd 
 
-# Start the container by running our server
+# Start the container by running our server 
 CMD ["npm", "start"]
 
 # We run our service on port 8080

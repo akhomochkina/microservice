@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
     await fragment.save();
     await fragment.setData(req.body);
     res.location(`${apiURL}/v1/fragments/${fragment.id}`);
-    res.status(201).json(createSuccessResponse({ fragment: fragment }));
+    res.status(201).json(createSuccessResponse({ status: 'ok', fragment: fragment }));
   } catch (error) {
     res.status(500).json(createErrorResponse(500, error.message));
   }
