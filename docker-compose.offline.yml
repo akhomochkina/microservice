@@ -1,0 +1,28 @@
+# docker-compose.offline.yml
+
+services:
+  fragments:
+    # Use a proper init process (tini)
+    init: true
+    build: .
+    environment:
+      - API_URL=http://localhost:8080
+      - HTPASSWD_FILE=tests/.htpasswd
+      - LOG_LEVEL=${LOG_LEVEL:-info}     
+    ports:
+      - '8080:8080'
+
+  # DynamoDB Local, see: https://hub.docker.com/r/amazon/dynamodb-local
+  dynamodb-local:
+    image: amazon/dynamodb-local
+    ports:
+      - '8000:8000'
+    command: ['-jar', 'DynamoDBLocal.jar', '-inMemory']
+
+  localstack:
+    image: localstack/localstack
+    ports:
+      - '4566:4566'
+    environment:
+      - SERVICES=s3
+      - DEFAULT_REGION=us-east-1  
