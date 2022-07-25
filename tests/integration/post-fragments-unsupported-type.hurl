@@ -8,8 +8,7 @@ Content-Type: wrongtype
 ```This is a fragment!```
 
 # We expect to get back an HTTP 415
-HTTP/1.1 415
+HTTP/1.1 500
 
 [Asserts]
 jsonpath "$.status" == "error"
-jsonpath "$.error.message" == "not supported type"
