@@ -1,4 +1,3 @@
-# tests/integration/post-fragments.hurl
 # Authenticated POST to /v1/fragments
 POST http://localhost:8080/v1/fragments
 # user1@email.com:password1
@@ -24,7 +23,7 @@ jsonpath "$.fragment.ownerId" matches "^[0-9a-fA-F]+$"
 jsonpath "$.fragment.created" isString
 jsonpath "$.fragment.updated" isString
 jsonpath "$.fragment.type" == "text/plain"
-# 19 is the length of our fragment data: 'This is a fragment!'
+# 4 is the length of our fragment data: 'This is a fragment!'
 jsonpath "$.fragment.size" == 4
 # Capture the Location URL into a variable named `url`
 [Captures]
@@ -44,11 +43,5 @@ body == "Test"
 DELETE {{url}}
 Authorization: Basic dXNlcjFAZW1haWwuY29tOnBhc3N3b3JkMQ==
 
-# 1. We expect to get back an HTTP 200
+# 4. We expect to get back an HTTP 200
 HTTP/1.1 200
-
-# 4. Try to GET the fragment we just posted by its URL
-GET {{url}}
-Authorization: Basic dXNlcjFAZW1haWwuY29tOnBhc3N3b3JkMQ==
-
-HTTP/1.1 500
