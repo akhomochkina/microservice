@@ -44,4 +44,4 @@ DELETE {{url}}
 Authorization: Basic dXNlcjFAZW1haWwuY29tOnBhc3N3b3JkMQ==
 
 # 4. We expect to get back an HTTP 200
-HTTP/1.1 200
+HTTP/1.1 200-
