@@ -62,7 +62,7 @@ HTTP/1.1 200
 
 GET {{fragment1_url}}
 Authorization: Basic dXNlcjFAZW1haWwuY29tOnBhc3N3b3JkMQ==
-HTTP/1.1 404
+HTTP/1.1 500
 
 GET http://localhost:8080/v1/fragments
 Authorization: Basic dXNlcjFAZW1haWwuY29tOnBhc3N3b3JkMQ==
